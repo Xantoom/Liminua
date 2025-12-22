@@ -28,3 +28,8 @@ services:
             - /usr/src/app/node_modules
         environment:
             NODE_ENV: development
+    ###> doctrine/doctrine-bundle ###
+    database:
+        ports:
+            - "5432"
+    ###< doctrine/doctrine-bundle ###
