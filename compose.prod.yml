@@ -1,0 +1,13 @@
+---
+# Production environment override
+services:
+    php:
+        build:
+            target: frankenphp_prod
+        environment:
+            APP_SECRET: ${APP_SECRET}
+    web:
+        build:
+            target: bun_prod
+        environment:
+            NODE_ENV: production
