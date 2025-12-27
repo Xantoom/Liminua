@@ -39,14 +39,6 @@ services:
               protocol: tcp
     ###> doctrine/doctrine-bundle ###
     database:
-        # Use the image version from POSTGRES_VERSION env (defaults to 18 in this repo).
-        # IMPORTANT: If your existing `database_data` volume was created by a different
-        # major PostgreSQL version (for example, 16), you must either set
-        # POSTGRES_VERSION to the matching major version, upgrade the data directory
-        # (via `pg_upgrade`), or remove/rename the volume so the container can
-        # initialize a fresh database. If you want to reinitialize (you said no data),
-        # run `docker compose down -v` (or `docker volume rm liminua_database_data`) then `make up`. Do NOT start a new major server against an
-        # older data directory — the server will refuse to start.
         image: postgres:${POSTGRES_VERSION:-18}-alpine
         environment:
             POSTGRES_DB: ${POSTGRES_DB:-app}
