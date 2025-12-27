@@ -31,7 +31,7 @@ COPY . .
 # run with hot reload
 USER bun
 EXPOSE 3000/tcp
-CMD ["bun", "--hot", "run", "index.ts"]
+CMD ["bun", "--hot", "run", "src/index.ts"]
 
 # Prod Bun image
 FROM bun_base AS bun_prod
@@ -51,4 +51,4 @@ RUN bun run build
 # run the app
 USER bun
 EXPOSE 3000/tcp
-ENTRYPOINT ["bun", "run", "index.ts"]
+ENTRYPOINT ["bun", "run", "src/index.ts"]
